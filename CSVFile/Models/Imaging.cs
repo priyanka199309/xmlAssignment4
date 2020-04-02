@@ -45,5 +45,26 @@ namespace CSVFile.Models.Utilities
             return image;
         }
 
+
+
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            Image returnImage = null;
+
+            try
+            {
+                MemoryStream ms = new MemoryStream(byteArrayIn, 0, byteArrayIn.Length);
+                ms.Write(byteArrayIn, 0, byteArrayIn.Length);
+                returnImage = Image.FromStream(ms, true);
+
+            }
+            catch 
+            {
+             
+            }
+
+            return returnImage;
+
+        }
+        }
     }
-}
